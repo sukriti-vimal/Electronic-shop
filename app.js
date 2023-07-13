@@ -4,8 +4,6 @@ const express = require('express');
 const csrf = require('csurf');
 const expressSession = require('express-session');
 
-const port = 3000
-
 const createSessionConfig = require('./config/session');
 const db = require('./data/database');
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
@@ -23,6 +21,7 @@ const cartRoutes = require('./routes/cart.routes');
 const ordersRoutes = require('./routes/orders.routes');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -56,7 +55,7 @@ app.use(errorHandlerMiddleware);
 
 db.connectToDatabase()
   .then(function () {
-    app.listen(process.env.PORT || port, () => console.log('listening to port $(port)'));
+    app.listen(port, () => console.log(`Example app listening on port ${port}!`));
   })
   .catch(function (error) {
     console.log('Failed to connect to the database!');
