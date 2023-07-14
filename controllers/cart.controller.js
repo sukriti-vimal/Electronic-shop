@@ -22,6 +22,7 @@ async function addCartItem(req, res, next) {
     message: 'Cart updated!',
     newTotalItems: cart.totalQuantity,
   });
+  
 }
 
 function updateCartItem(req, res) {
