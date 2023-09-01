@@ -2,11 +2,10 @@ const mongodb = require('mongodb');
 
 const MongoClient = mongodb.MongoClient;
 
-let mongodbUrl = 'mongodb+srv://trippy_nerd:Sukriti@cluster0.ijeebov.mongodb.net/?retryWrites=true&w=majority'
 
-if(process.env.MONGODB_URL){
-  mongodbUrl = process.env.MONGODB_URL;
-}
+
+  let mongodbUrl = process.env.MONGODB_URL;
+
 
 let database;
 
