@@ -2,10 +2,11 @@ const mongodb = require('mongodb');
 
 const MongoClient = mongodb.MongoClient;
 
+let mongodbUrl = 'mongodb://127.0.0.1:27017'
 
-
-  let mongodbUrl = process.env.MONGODB_URL;
-
+if(process.env.MONGODB_URI){
+  mongodbUrl = process.env.MONGODB_URI;
+}
 
 let database;
 
